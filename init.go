@@ -82,7 +82,9 @@ func N(n int) {
 		Wr.Write([]byte{'\n'})
 	}
 }
-
+func Ln() {
+	Wr.Write([]byte{'\n'})
+}
 func Et[T any](v T, err error) {
 	if err != nil {
 		Ef("{%v}{%v}", v, err)
