@@ -43,3 +43,24 @@ func (l *Logger) AttrB24(c uint32) {
 	l.Writef("\033[48;2;%d;%d;%dm", (c>>16)&0xFF, (c>>8)&0xFF, c&0xFF)
 }
 func (l *Logger) AttrReset() { l.Out.Write([]byte("\033[0m")) }
+
+func (l *Logger) F256String(c uint8, s string) {
+	l.AttrF256(c)
+	l.WriteString(s)
+	l.AttrReset()
+}
+func (l *Logger) B256String(c uint8, s string) {
+	l.AttrB256(c)
+	l.WriteString(s)
+	l.AttrReset()
+}
+func (l *Logger) F24String(c uint32, s string) {
+	l.AttrF24(c)
+	l.WriteString(s)
+	l.AttrReset()
+}
+func (l *Logger) B24String(c uint32, s string) {
+	l.AttrB24(c)
+	l.WriteString(s)
+	l.AttrReset()
+}
