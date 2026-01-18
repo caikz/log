@@ -25,13 +25,13 @@ func (l *Logger) Ef(format string, args ...any) { l.Errorf(format, args...) }
 func (l *Logger) Ff(format string, args ...any) { l.Fatalf(format, args...) }
 func (l *Logger) Pf(format string, args ...any) { l.Panicf(format, args...) }
 
+func (l *Logger) Write(p []byte) (n int, err error) { return l.Out.Write(p) }
 func (l *Logger) Writef(f string, args ...any) (n int, err error) {
 	return fmt.Fprintf(l.Out, f, args...)
 }
 func (l *Logger) WriteString(s string) (n int, err error) {
 	return l.Out.Write([]byte(s))
 }
-
 func (l *Logger) Ln() { l.Out.Write([]byte("\n")) }
 
 func (l *Logger) AttrF256(c uint8) { l.Writef("\033[38;5;%dm", c) }

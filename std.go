@@ -32,23 +32,32 @@ func init() {
 }
 
 var stdloger = Logger{logrus.StandardLogger()}
-var T = stdloger.Trace
-var D = stdloger.Debug
-var I = stdloger.Info
-var W = stdloger.Warn
-var E = stdloger.Error
-var F = stdloger.Fatal
-var P = stdloger.Panic
+var T = stdloger.T
+var D = stdloger.D
+var I = stdloger.I
+var W = stdloger.W
+var E = stdloger.E
+var F = stdloger.F
+var P = stdloger.P
 
-var Tf = stdloger.Tracef
-var Df = stdloger.Debugf
-var If = stdloger.Infof
-var Wf = stdloger.Warnf
-var Ef = stdloger.Errorf
-var Ff = stdloger.Fatalf
-var Pf = stdloger.Panicf
+var Tf = stdloger.Tf
+var Df = stdloger.Df
+var If = stdloger.If
+var Wf = stdloger.Wf
+var Ef = stdloger.Ef
+var Ff = stdloger.Ff
+var Pf = stdloger.Pf
 
+var Write = stdloger.Write
+var Writef = stdloger.Writef
+var WriteString = stdloger.WriteString
 var Ln = stdloger.Ln
+
+var AttrF256 = stdloger.AttrF256
+var AttrB256 = stdloger.AttrB256
+var AttrF24 = stdloger.AttrF24
+var AttrB24 = stdloger.AttrB24
+var AttrReset = stdloger.AttrReset
 
 func SetT() { stdloger.SetLevel(logrus.TraceLevel) }
 func SetD() { stdloger.SetLevel(logrus.DebugLevel) }
