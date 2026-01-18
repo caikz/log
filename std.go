@@ -9,9 +9,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-type w struct {
-	a, b io.Writer
-}
+type w struct{ a, b io.Writer }
 
 func (w w) Write(p []byte) (n int, err error) {
 	if w.a != nil {
@@ -29,14 +27,8 @@ func init() {
 	logrus.SetReportCaller(true)
 	SetD()
 
-	f, _ := os.Create("board.log")
-	// Stdout := w{}
-	// Stdout.a = os.Stdout
-	// Stdout.b = f
-	Stdout := w{
-		f, os.Stdout,
-	}
-	logrus.SetOutput(Stdout)
+	f, _ := os.Create(".log")
+	logrus.SetOutput(w{f, os.Stdout})
 }
 
 var stdloger = Logger{logrus.StandardLogger()}
